@@ -5,7 +5,7 @@ config:
       branch: release/1.7.8
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     github.com/grycap/im-client:
-      branch: master
+      branch: imlib
       repo: https://github.com/grycap/im-client
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -15,52 +15,62 @@ sqa_criteria:
     repos:
       github.com/grycap/im-client git:
         commands:
-        - /usr/bin/env sh .sqa/script.sleepy-brown-bison.sh
-        container: qc.acc_lumpy-mustard-butterfly
+        - /usr/bin/env sh .sqa/script.foggy-lime-turkey.sh
+        container: qc.acc_woozy-buff-guppy
   QC.Doc:
     repos:
       github.com/grycap/im-client find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.shaky-thistle-wrasse.sh
-        container: qc.doc_skinny-eggplant-tetra
+        - /usr/bin/env sh .sqa/script.crappy-brass-bee.sh
+        container: qc.doc_jumpy-rust-burmese
       github.com/grycap/im-client git:
         commands:
-        - /usr/bin/env sh .sqa/script.lumpy-cerise-woodlouse.sh
-        container: qc.doc_gloppy-mauve-spider
+        - /usr/bin/env sh .sqa/script.messy-charcoal-fly.sh
+        container: qc.doc_pasty-tomato-badger
       github.com/grycap/im-client markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.woolly-brass-magpie.sh
-        container: qc.doc_cheeky-blue-mule
+        - /usr/bin/env sh .sqa/script.gimpy-brown-bongo.sh
+        container: qc.doc_woolly-cornflower-tapir
       github.com/grycap/im-client restructuredtext-lint:
         commands:
-        - /usr/bin/env sh .sqa/script.nerdy-xanthic-ibis.sh
-        container: qc.doc_pasty-auburn-grouse
+        - /usr/bin/env sh .sqa/script.surly-eggplant-cuttlefish.sh
+        container: qc.doc_bumpy-tangerine-akbash
   QC.Lic:
     repos:
       github.com/grycap/im-client licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.woolly-dandelion-cheetah.sh
-        container: qc.lic_greasy-firebrick-mau
+        - /usr/bin/env sh .sqa/script.lanky-pear-antelope.sh
+        container: qc.lic_wimpy-periwinkle-capybara
+  QC.Met:
+    repos:
+      github.com/grycap/im-client validate_codemeta:
+        commands:
+        - /usr/bin/env sh .sqa/script.breezy-lime-liger.sh
+        container: qc.met_flimsy-blue-woodpecker
   QC.Sec:
     repos:
       github.com/grycap/im-client bandit:
         commands:
-        - /usr/bin/env sh .sqa/script.tacky-aqua-harrier.sh
-        container: qc.sec_scaly-tangerine-tortoise
+        - /usr/bin/env sh .sqa/script.wheezy-goldenrod-wolf.sh
+        container: qc.sec_trippy-copper-quokka
   QC.Sty:
     repos:
       github.com/grycap/im-client flake8:
         commands:
-        - /usr/bin/env sh .sqa/script.smelly-yellow-eagle.sh
-        container: qc.sty_gloppy-russet-crocodile
+        - /usr/bin/env sh .sqa/script.squeaky-cinnamon-mole.sh
+        container: qc.sty_gummy-charcoal-insect
       github.com/grycap/im-client hadolint:
         commands:
-        - /usr/bin/env sh .sqa/script.goopy-amethyst-cuttlefish.sh
-        container: qc.sty_beady-aqua-catfish
+        - /usr/bin/env sh .sqa/script.cozy-rust-echidna.sh
+        container: qc.sty_squeaky-rose-raccoon
+      github.com/grycap/im-client jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.shaggy-bronze-dogfish.sh
+        container: qc.sty_stuffy-corn-beagle
   QC.Ver:
     repos:
       github.com/grycap/im-client get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.tacky-olivine-deer.sh
-        container: qc.ver_baggy-ruby-uguisu
+        - /usr/bin/env sh .sqa/script.cheeky-firebrick-frog.sh
+        container: qc.ver_whiny-chocolate-cuscus
 timeout: 5400
