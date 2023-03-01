@@ -1,0 +1,66 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/1.7.8
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/grycap/im-client:
+      branch: master
+      repo: https://github.com/grycap/im-client
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/grycap/im-client git:
+        commands:
+        - /usr/bin/env sh .sqa/script.sleepy-brown-bison.sh
+        container: qc.acc_lumpy-mustard-butterfly
+  QC.Doc:
+    repos:
+      github.com/grycap/im-client find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.shaky-thistle-wrasse.sh
+        container: qc.doc_skinny-eggplant-tetra
+      github.com/grycap/im-client git:
+        commands:
+        - /usr/bin/env sh .sqa/script.lumpy-cerise-woodlouse.sh
+        container: qc.doc_gloppy-mauve-spider
+      github.com/grycap/im-client markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.woolly-brass-magpie.sh
+        container: qc.doc_cheeky-blue-mule
+      github.com/grycap/im-client restructuredtext-lint:
+        commands:
+        - /usr/bin/env sh .sqa/script.nerdy-xanthic-ibis.sh
+        container: qc.doc_pasty-auburn-grouse
+  QC.Lic:
+    repos:
+      github.com/grycap/im-client licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.woolly-dandelion-cheetah.sh
+        container: qc.lic_greasy-firebrick-mau
+  QC.Sec:
+    repos:
+      github.com/grycap/im-client bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.tacky-aqua-harrier.sh
+        container: qc.sec_scaly-tangerine-tortoise
+  QC.Sty:
+    repos:
+      github.com/grycap/im-client flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.smelly-yellow-eagle.sh
+        container: qc.sty_gloppy-russet-crocodile
+      github.com/grycap/im-client hadolint:
+        commands:
+        - /usr/bin/env sh .sqa/script.goopy-amethyst-cuttlefish.sh
+        container: qc.sty_beady-aqua-catfish
+  QC.Ver:
+    repos:
+      github.com/grycap/im-client get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.tacky-olivine-deer.sh
+        container: qc.ver_baggy-ruby-uguisu
+timeout: 5400
